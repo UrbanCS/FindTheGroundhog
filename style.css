@@ -1,0 +1,111 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    margin-top: 30px;
+  }
+  
+  #difficulty-select {
+    margin-bottom: 20px;
+  }
+  
+  .difficulty-button {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .difficulty-button[data-difficulty="Easy"] {
+    background-color: green;
+    color: white;
+  }
+  
+  .difficulty-button[data-difficulty="Medium"] {
+    background-color: yellow;
+  }
+  
+  .difficulty-button[data-difficulty="Hard"] {
+    background-color: red;
+    color: white;
+  }
+  
+  #grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin-top: 20px;
+    /* Remove position: relative; */
+    width: 440px;
+    margin: 0 auto; /* Center the grid horizontally */
+  }
+  
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background-color: #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .cell:hover {
+    background-color: #d1d1d1;
+  }
+  
+  .cell.caught {
+    background-color: green;
+    color: white;
+  }
+  
+  .cell.clicked {
+    pointer-events: none; /* Disable clicks on clicked squares */
+  }
+  
+  p {
+    margin-top: 10px;
+  }
+  
+  #difficulty {
+    font-weight: bold;
+  }
+  
+  /* Add animation keyframes for groundhog movement */
+  @keyframes moveGroundhog {
+    0% { left: 0; top: 0; }
+    25% { left: 100px; top: 0; }
+    50% { left: 100px; top: 100px; }
+    75% { left: 0; top: 100px; }
+    100% { left: 0; top: 0; }
+  }
+  
+  .groundhog {
+    animation: moveGroundhog 2s infinite; /* Apply the animation */
+    position: absolute; /* Add absolute positioning for animation */
+  }
+  
+  /* Add animation for revealing the content */
+  @keyframes revealAnimation {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
